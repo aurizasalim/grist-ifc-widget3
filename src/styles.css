@@ -64,30 +64,6 @@ body {
   line-height: 1.5;
 }
 
-.uploadButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 3rem;
-  padding: 0.9rem 1rem;
-  border-radius: 0.9rem;
-  background: linear-gradient(135deg, #2563eb, #0ea5e9);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.15s ease;
-  border: none;
-}
-
-.uploadButton:hover:not(:disabled) {
-  transform: translateY(-1px);
-}
-
-.uploadButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .viewControls {
   padding-top: 0.5rem;
 }

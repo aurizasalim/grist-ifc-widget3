@@ -26,21 +26,6 @@ declare global {
 	}
 }
 
-const TEST_IFC_FILES = [
-	{
-		name: 'AC20-FZK-Haus.ifc',
-		url: 'https://raw.githubusercontent.com/ThatOpen/engine_web-ifc/main/tests/ifcfiles/public/AC20-FZK-Haus.ifc',
-	},
-	{
-		name: 'Duplex model',
-		url: 'https://raw.githubusercontent.com/ThatOpen/engine_web-ifc/main/tests/ifcfiles/public/duplex.ifc',
-	},
-	{
-		name: 'Sample entities',
-		url: 'https://raw.githubusercontent.com/ThatOpen/engine_web-ifc/main/tests/ifcfiles/public/Sample_entities.ifc',
-	},
-];
-
 export default function App() {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const rendererRef = useRef<Renderer | null>(null);
@@ -48,7 +33,6 @@ export default function App() {
 	const [status, setStatus] = useState('Waiting for Grist selection...');
 	const currentUrlRef = useRef<string | null>(null);
 	const loadRequestRef = useRef(0);
-	const [selectedTestFile, setSelectedTestFile] = useState(TEST_IFC_FILES[0].url);
 
 	// Initialize WebGPU Renderer
 	useEffect(() => {
@@ -209,29 +193,6 @@ export default function App() {
 	return (
 		<div className="app">
 			<aside className="sidebar">
-				<label className="label">
-				Test IFC model
-				<select
-					value={selectedTestFile}
-					onChange={(event) => setSelectedTestFile(event.target.value)}
-				>
-					{TEST_IFC_FILES.map((file) => (
-						<option key={file.url} value={file.url}>
-							{file.name}
-						</option>
-					))}
-				</select>
-			</label>
-				<button
-					className="uploadButton"
-					type="button"
-					onClick={() => {
-						currentUrlRef.current = selectedTestFile;
-						loadIfc(selectedTestFile);
-					}}
-				>
-					Load test model
-				</button>
 				<p className="muted">{status}</p>
 			</aside>
 			<main className="viewportShell">
