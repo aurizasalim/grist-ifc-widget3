@@ -1,0 +1,1 @@
+var e=`/grist-ifc-widget3/assets/laz-perf-CFJp03W6.wasm`;export{e as default};
